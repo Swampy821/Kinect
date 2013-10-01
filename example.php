@@ -1,0 +1,52 @@
+<html>
+<head>
+<script src='js/jquery-1.8.3.min.js'></script>
+<script src='js/zig.min.js'></script>
+<script src='js/kinect.jquery.js'></script>
+<style>
+body{
+	font-size:36px;
+}
+</style>
+<script>
+	$.kinect({
+		time:200,
+		left_callback: function(){move_left();},
+		down_callback: function(){move_down();},
+		y_offset:300,
+		x_offset:100
+	});
+
+	$.kinect({
+		hand:'left',
+		time:200,
+		right_callback: function(){move_right();},
+		up_callback: function(){move_up();},
+		y_offset:300,
+		x_offset:100
+	})
+	function move_right()
+	{
+		$('#right_hand_div').animate({left:"+=250"});
+	}
+	function move_left()
+	{
+		$('#right_hand_div').animate({left:"-=250"});
+	}
+	function move_down()
+	{
+		$('#right_hand_div').animate({top:"+=250"});
+	}
+	function move_up()
+	{
+		$('#right_hand_div').animate({top:"-=250"});
+	}
+</script>
+</head>
+<body>
+	<div id='right_hand_div' style='width:250px; height:250px; background-color:black; position:absolute;'>
+	</div>
+
+
+</body>
+</html>
